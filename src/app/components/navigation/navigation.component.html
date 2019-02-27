@@ -1,0 +1,46 @@
+<div class="nav-container">
+
+    <div class="profile">
+        <img src="assets/profile-placeholder.gif">
+        <p (click)="route('profile')">Patrick Collings</p>
+    </div>
+
+    <div class="options">
+        <div class="nav-button">
+            <mat-icon>home</mat-icon>
+            <p (click)="route('home')">Home</p>
+            <div class="indicator" [ngClass]="{'selected': (destination$ | async) === 'home'}"></div>
+        </div>
+    
+        <div class="nav-button">
+            <mat-icon>explore</mat-icon>
+            <p (click)="route('startups')">Explore Startups</p>
+            <div class="indicator" [ngClass]="{'selected': (destination$ | async) === 'startups'}"></div>
+        </div>
+    
+        <div class="nav-button">
+            <mat-icon>create</mat-icon>
+            <p (click)="route('create')">Create a project</p>
+            <div class="indicator" [ngClass]="{'selected': (destination$ | async) === 'create'}"></div>
+        </div>
+    
+        <div class="nav-button">
+            <mat-icon>people</mat-icon>
+            <p (click)="route('myteam')">My Team</p>
+            <div class="indicator" [ngClass]="{'selected': (destination$ | async) === 'myteam'}"></div>
+        </div>
+
+        <div class="nav-button">
+            <mat-icon>chat</mat-icon>
+            <p (click)="route('messages')">Messages</p>
+            <div class="indicator" [ngClass]="{'selected': (destination$ | async) === 'messages'}"></div>
+        </div>
+
+    </div>
+
+    <div class="nav-button settings-button">
+        <mat-icon>settings</mat-icon>
+        <p (click)="route('settings')">Settings</p>
+    </div>
+
+</div>

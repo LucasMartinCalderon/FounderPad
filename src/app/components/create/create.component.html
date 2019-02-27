@@ -1,0 +1,65 @@
+<div class="header">
+  <h1>Create a project</h1>
+</div>
+
+<form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-section">
+    <div class="form-section-header">
+      <p>PROJECT INFO</p>
+    </div>
+    <div class="form-section-body">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Startup Name" formControlName="startupName">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Location" formControlName="location">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4" cdkAutosizeMaxRows="50" formControlName="startupDescription"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="form-section">
+      <div class="form-section-header">
+        <p>ABOUT YOU</p>
+      </div>
+      <div class="form-section-body">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Full Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="University" formControlName="university">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Bio</mat-label>
+          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4" cdkAutosizeMaxRows="50" formControlName="bio"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  <div class="form-section">
+    <div class="form-section-header">
+      <p>POSITIONS</p>
+    </div>
+    <div class="form-section-body">
+      <div class="position-form" formArrayName="positions" *ngFor="let position of positions.controls; let i = index">
+        <div [formGroupName]="i" class="position-input">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Position Title" formControlName="positionTitle">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Position Description</mat-label>
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4" cdkAutosizeMaxRows="50" formControlName="positionDescription"></textarea>
+          </mat-form-field>
+          <button mat-raised-button class="delete-button" (click)="removePosition(i)">Delete</button>
+        </div>
+      </div>
+      <button type="button" mat-raised-button (click)="addPosition()" color="primary">Add Another position</button>
+    </div>
+  </div>
+
+  <button mat-raised-button type="submit" [disabled]="!form.valid">Create Project</button>  
+
+</form>

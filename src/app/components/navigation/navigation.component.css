@@ -1,0 +1,69 @@
+.nav-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    
+    background-color: #ebebeb;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    justify-content: space-between;
+}
+
+p:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.nav-button p {
+    margin-left: 15px;
+    margin-right: 4px;
+}
+
+.settings-button {
+    position: absolute;
+    bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 35px;
+}
+
+.profile img {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+}
+
+p {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+.indicator {
+    width: 3px;
+    height: 10px;
+    flex-grow: 1;
+}
+
+.selected {
+    background-color: orange;
+}
+
+

@@ -1,0 +1,34 @@
+<div class="header">
+  <div class="header-info">
+    <h1 class="orange">{{ startup.name }}</h1>
+    <h2>{{ startup.location }}</h2>
+    <h2>Patrick Collings</h2>
+  </div>
+  <div class="header-image">
+    <img src="assets/assetize-banner.jpg">
+  </div>
+</div>
+
+
+<div class="container mat-elevation-z3">
+  <div class="about-us">
+    <div class="header card-header">
+      <h2>About Us</h2>
+    </div>
+    <p class="linebreak">{{ startup.description }}</p>
+  </div>
+
+  <div class="positions">
+    <div class="header card-header">
+      <h2>Positions</h2>
+    </div>
+    <mat-tab-group class="tab-group">
+      <ng-container *ngFor="let position of startup.positions">
+        <mat-tab label="{{ position.name }}">
+          <p class="linebreak">{{ position.description }}</p>
+          <button mat-raised-button color="primary">Apply Now</button>
+        </mat-tab>
+      </ng-container>
+    </mat-tab-group>
+  </div>
+</div>

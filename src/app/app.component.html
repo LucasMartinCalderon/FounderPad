@@ -1,0 +1,12 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="md-elevation-z8" mode="side" [(opened)]="opened">
+    
+    <app-navigation></app-navigation>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-icon class="toggle-icon" *ngIf="!opened" (click)="toggle()">arrow_right</mat-icon>
+    <mat-icon class="toggle-icon" *ngIf="opened" (click)="toggle()">arrow_left</mat-icon>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

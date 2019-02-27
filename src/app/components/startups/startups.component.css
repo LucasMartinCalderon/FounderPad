@@ -1,0 +1,92 @@
+.table {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    border-collapse: collapse;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.title p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.4em;
+}
+
+.title h1 {
+    font-family: 'Work Sans', sans-serif;
+    margin-left: 0.7em;
+}
+
+.table-headings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table td {
+    padding-top: 1.5em;
+    min-width: 100px;
+}
+
+.table td {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+}
+
+.table th {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-bottom: 1px solid lightgrey;
+    padding: 1em;
+}
+
+.orange-text {
+    color: orange;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.position {
+    border: 0.1em solid darkgrey;
+    padding: 0.15em;
+    border-radius: 0.3em;
+}
+
+.positions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.positions > * {
+    margin: 0.3em 0.1em;
+}
+
+.create-project {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    background-color: orange;
+    color: white;
+    padding: 0.5em 0.5em;
+    border-radius: 0.3em;
+}
+
+.create-project p {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+}
+
+.create-project:hover {
+    cursor: pointer;
+}

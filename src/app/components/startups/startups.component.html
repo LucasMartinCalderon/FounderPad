@@ -1,0 +1,32 @@
+<div class="title">
+  <mat-icon>explore</mat-icon>
+  <p>Exploring Startups</p>
+</div>
+
+<div (click)="route('create')" class="create-project">
+  <mat-icon>add</mat-icon>
+  <p>Create Project</p>
+</div>
+
+<table class="table">
+
+  <tr>
+    <th>Name</th>
+    <th>Sector</th>
+    <th>Positions</th>
+    <th>Location</th>
+    <th></th>
+  </tr>
+
+  <tr *ngFor="let startup of startups">
+    <td class="orange-text bold">{{ startup.name }}</td>
+    <td>{{ startup.sector }}</td>
+    <td class="positions">
+      <div class="position" *ngFor="let position of startup.positions">
+          {{ position }}
+      </div>
+    </td>
+    <td>{{ startup.location }}</td>
+    <td><button mat-raised-button (click)="viewProject(startup.name)">Join</button></td>
+  </tr>
+</table>
