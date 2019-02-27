@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { StartupService } from '../../services/startup.service';
@@ -7,6 +7,12 @@ import { Observable } from 'rxjs';
 import { Startup } from '../../models/startup';
 
 import { ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-startup-view',
@@ -22,7 +28,8 @@ export class StartupViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private startupService: StartupService
+    private startupService: StartupService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -32,6 +39,32 @@ export class StartupViewComponent implements OnInit {
         this.startup = startup;
       });
     });
+  }
+
+  apply() {
+    const dialogRef = this.dialog.open(ApplyPopupComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-popup-dialog',
+  templateUrl: 'apply-dialog.html',
+})
+export class ApplyPopupComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<ApplyPopupComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

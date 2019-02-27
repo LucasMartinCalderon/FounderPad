@@ -21,9 +21,12 @@ import { StartupViewComponent } from './components/startup-view/startup-view.com
 import { StartupService } from './services/startup.service';
 import { NavigationService } from './services/navigation.service';
 
+import { ApplyPopupComponent } from './components/startup-view/startup-view.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    ApplyPopupComponent,
     LandingPageComponent,
     NavigationComponent,
     HomeComponent,
@@ -32,7 +35,7 @@ import { NavigationService } from './services/navigation.service';
     CreateComponent,
     MyTeamComponent,
     ProfileComponent,
-    StartupViewComponent
+    StartupViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,9 @@ import { NavigationService } from './services/navigation.service';
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    ApplyPopupComponent
   ],
   providers: [
     NavigationService,
