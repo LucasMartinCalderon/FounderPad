@@ -1,3 +1,56 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <div class="left-container">
+    <img src="assets/profile-placeholder.gif" class="profile-image">
+    <div class="heading">
+      <p class="heading-title">University</p>
+      <div class="divider"></div>
+    </div>
+    <p>Exeter</p>
+    <p>Computer Science Undergrad</p>
+    <p>2nd Year</p>
+    <div class="heading">
+      <p class="heading-title">Interests</p>
+      <div class="divider"></div>
+    </div>
+    <p>AI</p>
+    <p>Deep Learning</p>
+    <p>Rugby</p>
+  </div>
+
+  <div class="right-container">
+    <div class="main-header-container">
+      <div class="basic-info-container">
+        <h2>Patrick Collings</h2>
+        <h2>Exeter, UK</h2>
+        <h2>CTO</h2>
+      </div>
+      <div class="user-actions-container">
+        <div class="user-action-item"><mat-icon>message</mat-icon>Send Message</div>
+        <div class="user-action-item"><mat-icon>flag</mat-icon>Report User</div>
+      </div>
+    </div>
+    <mat-tab-group class="tab-group">
+      <mat-tab label="About">
+        <p class="linebreak">{{ testString }}</p>
+      </mat-tab>
+      <mat-tab label="Current Projects">
+        <div class="project-item" *ngFor="let startup of startups">
+          <p>{{ startup.name }}</p>
+          <button mat-raised-button (click)="viewProject(startup.id)" color="primary">View</button>
+        </div>
+      </mat-tab>
+      <mat-tab label="Skills">
+        <mat-list>
+          <mat-list-item *ngFor="let skill of skills">
+            <p>{{ skill }}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab label="Resume">
+        
+      </mat-tab>
+    </mat-tab-group>
+
+
+  </div>
+</div>

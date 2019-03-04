@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+}
+
+.left-container {
+    width: 25%;
+    padding: 2em;
+}
+
+.right-container {
+    width: 75%;
+    padding: 2em;
+}
+
+.main-header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.user-actions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-action-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-action-item mat-icon {
+    margin-right: 0.7em;
+}
+
+.heading {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.heading-title {
+    margin-right: 1em;
+}
+
+.heading .divider {
+    flex-grow: 1;
+    height: 1px;
+    background-color: grey;
+}
+
+.profile-image { 
+    width: 100%;
+}
+
+.tab-group {
+    width: 100%;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linebreak {
+    white-space: pre-wrap;
+}
