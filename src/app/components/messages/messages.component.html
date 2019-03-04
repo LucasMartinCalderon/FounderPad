@@ -1,3 +1,34 @@
-<p>
-  messages works!
-</p>
+<div class="container">
+  <!-- View Messages -->
+  <mat-card class="message-container">
+    <mat-card-header class="post-header-container">
+      <img mat-card-avatar src="assets/profile-placeholder.gif">
+      <mat-card-title>{{ currentConversation.author }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-container">
+      <div class="message-list-container">
+        <div class="message-list-item" *ngFor="let message of currentConversation.messages">
+          <p>{{ message.author }} - {{ message.time }}</p>
+          <p>{{ message.content }}</p>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+      <div class="send-message-container">
+        <mat-form-field class="message-textbox">
+          <mat-label>Type Message...</mat-label>
+          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+        <button mat-raised-button class="send-reply-button" color="primary">Reply</button>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+  <!-- View Contacts -->
+  <div class="contacts-container">
+    <h2>People</h2>
+    <div class="contact-item" (click)="changeConversation(conversation)" *ngFor="let conversation of conversations">
+      <p [ngClass]="{'contact-item-selected': currentConversation === conversation}">{{ conversation.author }}</p>
+      <p *ngIf="conversation.unread > 0" class="unread-message-notification">({{ conversation.unread }})</p>
+    </div>
+  </div>
+</div>

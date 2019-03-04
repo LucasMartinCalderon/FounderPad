@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    /* height: 100%; */
+}
+
+mat-card {
+    width: 85%;
+    height: 90vh;
+    margin: 2em;
+}
+
+.message-container mat-card-content {
+    display: flex;
+    /* bottom: 0; */
+    /* left: 0; */
+    width: 100%;
+    /* height: 100%; */
+    /* position: absolute; */
+    flex-direction: column;
+    /* overflow-y: scroll; */
+}
+
+.message-list-container {
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 90%;
+    /* overflow-y: scroll; */
+    position: absolute;
+    margin: 2em 2em 0 2em;
+}
+
+.message-list-item {
+    /* flex-grow: 1; */
+    padding: 1em 2em;
+}
+
+.contacts-container {
+    width: 15%;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.send-message-container {
+    display: flex;
+    align-items: center;
+    margin: 1em 2em 0 2em;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+}
+
+.send-message-container mat-form-field {
+    flex-grow: 1;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.contact-item:hover {
+    cursor: pointer;
+}
+
+.contact-item-selected {
+    font-weight: bold;
+}
+
+.send-reply-button {
+    margin-left: 2em;
+}
+
+.unread-message-notification {
+    margin-left: 1em;
+}
