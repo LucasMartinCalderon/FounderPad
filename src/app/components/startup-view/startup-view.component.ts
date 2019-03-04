@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, NgZone, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { StartupService } from '../../services/startup.service';
 import { Observable } from 'rxjs';
 
@@ -8,10 +8,11 @@ import { Startup } from '../../models/startup';
 
 import { ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+  position: string;
+  startupName: string;
 }
 
 @Component({
@@ -41,9 +42,14 @@ export class StartupViewComponent implements OnInit {
     });
   }
 
-  apply() {
+  apply(position: string) {
     const dialogRef = this.dialog.open(ApplyPopupComponent, {
-      width: '250px',
+      width: '70%',
+      height: '70%',
+      data: {
+        position,
+        startupName: this.startup.name
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -55,13 +61,23 @@ export class StartupViewComponent implements OnInit {
 
 @Component({
   selector: 'app-popup-dialog',
-  templateUrl: 'apply-dialog.html',
+  templateUrl: 'apply-dialog.component.html',
+  styleUrls: ['./apply-dialog.component.css'],
 })
 export class ApplyPopupComponent {
 
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
+
   constructor(
     public dialogRef: MatDialogRef<ApplyPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private ngZone: NgZone) { }
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this.ngZone.onStable.pipe(take(1))
+      .subscribe(() => this.autosize.resizeToFitContent(true));
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
