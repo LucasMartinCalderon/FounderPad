@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Applying for {{ data.position }}</h1>
+    <p>Let {{ data.startupName }} know a bit about yourself and ask any questions you might have.</p>
+    <mat-form-field class="text-area">
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="9" cdkAutosizeMaxRows="50"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button class="apply-button" color="primary">Apply Now</button>
+</div>
