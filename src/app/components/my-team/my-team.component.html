@@ -1,3 +1,87 @@
-<p>
-  my-team works!
-</p>
+<!-- Banner with project info -->
+<div class="header">
+  <div class="header-info">
+    <h1 class="orange">{{ startup.name }}</h1>
+    <h2>{{ startup.location }}</h2>
+    <h2>Patrick Collings</h2>
+  </div>
+  <div class="header-image">
+    <img src="assets/assetize-banner.jpg">
+  </div>
+</div>
+
+
+<div class="container mat-elevation-z3">
+
+  <!-- Left hand side of project page -->
+  <div class="timeline-container">
+
+    <!-- Create a post -->
+    <mat-card class="create-post-container">
+      <mat-form-field class="full-width">
+        <mat-label>Write a post</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" cdkAutosizeMaxRows="50"></textarea>
+      </mat-form-field>
+      <div class="create-post-options-container">
+        <button mat-raised-button>Attach Image</button>
+        <button mat-raised-button color="primary">Post</button>
+      </div>
+    </mat-card>
+    <mat-divider class="divider"></mat-divider>
+
+    <!-- Display list of current posts -->
+    <div class="post-list-container">
+      <h2>Timeline</h2>
+      <mat-card class="post-container" *ngFor="let post of posts">
+        <!-- Post Header -->
+        <mat-card-header class="post-header-container">
+          <img mat-card-avatar src="assets/profile-placeholder.gif">
+          <mat-card-title>{{ post.author }}</mat-card-title>
+          <mat-card-subtitle>{{ post.time }}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- Post Body -->
+        <mat-card-content>
+          <p>{{ post.content }}</p>
+        </mat-card-content>
+        <!-- Post Comments -->
+        <div class="post-comments-container">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Comments ({{ post.comments.length }})
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- List of Comments -->
+            <div *ngFor="let comment of post.comments">
+              <p>{{ comment.author }}</p>
+              <p>{{ comment.body }}</p>
+              <mat-divider class="comment-divider"></mat-divider>
+            </div>
+            <!-- Post Comment -->
+            <div class="add-comment-container">
+              <mat-form-field class="full-width">
+                <mat-label>Add Comment</mat-label>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+              </mat-form-field>
+              <button mat-raised-button color="primary">Reply</button>
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </mat-card>
+    </div>
+
+  </div>
+
+  <!-- List of members in project with link to profiles -->
+  <div class="members-container">
+    <h2>Members</h2>
+    <p>Patrick</p>
+    <p>Tanguy</p>
+    <p>Andrew</p>
+    <p>Lucas</p>
+    <h2>Options</h2>
+    <p>Settings</p>
+    <p>Leave Group</p>
+    <p>Change Banner</p>
+  </div>
+</div>
